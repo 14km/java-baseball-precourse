@@ -18,7 +18,7 @@ public class BaseballGameController {
             System.out.print(SystemMessages.START.getText());
             player.inputNumber(Console.readLine().trim());
 
-            GameSystem gameSystem = new GameSystem(player, computer);
+            GameSystem gameSystem = new GameSystem(player.getInputNumbers(), computer.getRandomsNumbers());
             gameResult = gameSystem.play();
 
             System.out.println(GameResultMessages.convert(gameResult));

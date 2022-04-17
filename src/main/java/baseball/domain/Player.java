@@ -16,7 +16,7 @@ public class Player {
             int result = Integer.parseInt(input);
 
             if (this.inputNumbers.contains(result)) {
-                throw new IllegalArgumentException(String.format("중복된 숫자는 입력할 수 없습니다. [입력 값: %s]", inputString));
+                throw new IllegalArgumentException(String.format("중복된 숫자는 입력할 수 없습니다. [입력 값: %s, 중복된 숫자: %s]", inputString, input));
             }
 
             inputNumbers.add(result);

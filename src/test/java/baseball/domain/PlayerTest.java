@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class PlayerTest {
     Player player;
 
@@ -20,8 +23,14 @@ class PlayerTest {
         // when
         player.inputNumber(input);
 
+        List<String> numberConvert = new ArrayList<>();
+        for (Integer number : player.getInputNumbers()) {
+            numberConvert.add(number.toString());
+        }
+
         // then
         Assertions.assertThat(player.getInputNumbers().size()).isEqualTo(input.length());
+        Assertions.assertThat(String.join("", numberConvert)).isEqualTo(input);
     }
 
     @ParameterizedTest

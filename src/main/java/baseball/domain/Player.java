@@ -9,16 +9,20 @@ public class Player {
     private final List<Integer> inputNumbers = new ArrayList<>();
 
     public void inputNumber(String inputString) {
+        clear();
         isValid(inputString);
 
-        clear();
         for (String input : inputString.split("")) {
             int result = Integer.parseInt(input);
+
+            if (this.inputNumbers.contains(result)) {
+                throw new IllegalArgumentException(String.format("중복된 숫자는 입력할 수 없습니다. [입력 값: %s]", inputString));
+            }
+
             inputNumbers.add(result);
         }
     }
 
-    // TODO : 중복된 숫자를 확인하는 검증이 필요함.
     private void isValid(String inputString) {
         if (!NumberUtil.isInteger(inputString)) {
             throw new IllegalArgumentException(String.format("1부터 9까지의 숫자를 입력해주시기 바랍니다. (입력값: %s)", inputString));

@@ -12,7 +12,7 @@ class PlayerTest {
     Player player;
 
     @BeforeEach
-    void setting() {
+    void setUp() {
         player = new Player();
     }
 

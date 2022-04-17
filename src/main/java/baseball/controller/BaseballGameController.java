@@ -37,7 +37,7 @@ public class BaseballGameController {
         System.out.println(SystemMessages.OPTION.getText());
 
         String input = Console.readLine().trim();
-        if (!NumberUtil.isInteger(input)) {
+        if (NumberUtil.isNotNumber(input)) {
             throw new IllegalArgumentException(SystemMessages.OPTION_FAIL.getText());
         }
 

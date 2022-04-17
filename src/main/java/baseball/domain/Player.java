@@ -24,7 +24,7 @@ public class Player {
     }
 
     private void isValid(String inputString) {
-        if (!NumberUtil.isInteger(inputString)) {
+        if (NumberUtil.isNotNumber(inputString)) {
             throw new IllegalArgumentException(String.format("1부터 9까지의 숫자를 입력해주시기 바랍니다. (입력값: %s)", inputString));
         }
 

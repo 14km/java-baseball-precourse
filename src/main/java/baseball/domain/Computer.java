@@ -14,14 +14,19 @@ public class Computer {
 
     public void pickNumber() {
         clear();
-
-        for (int i = 0; i < DRAW_COUNT; i++) {
-            randomsNumbers.add(Randoms.pickNumberInRange(MIN_NUMBER_SIZE, MAX_NUMBER_SIZE));
-        }
+        do {
+            addRandomsNumber(Randoms.pickNumberInRange(MIN_NUMBER_SIZE, MAX_NUMBER_SIZE));
+        } while (randomsNumbers.size() < DRAW_COUNT);
     }
 
     private void clear() {
         randomsNumbers.clear();
+    }
+
+    private void addRandomsNumber(int number) {
+        if (!this.randomsNumbers.contains(number)) {
+            this.randomsNumbers.add(number);
+        }
     }
 
     public List<Integer> getRandomsNumbers() {

@@ -2,23 +2,31 @@ package baseball.common.utils;
 
 public class NumberUtil {
 
-    public static boolean isInteger(String inputString) {
+    public static boolean isNotNumber(String inputString) {
         if (inputString == null) {
-            return false;
+            return true;
         }
 
         try {
-            for (String input : inputString.split("")) {
-                int result = Integer.parseInt(input);
-
-                if (!(result >= 1 && result <= 9)) {
-                    throw new NumberFormatException();
-                }
-            }
+            isValid(inputString);
         } catch (NumberFormatException exception) {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
+    }
+
+    private static void isValid(String inputString) {
+        for (String input : inputString.split("")) {
+            int result = Integer.parseInt(input);
+
+            availableRangeValid(result);
+        }
+    }
+
+    private static void availableRangeValid(int number) {
+        if (!(number >= 1 && number <= 9)) {
+            throw new NumberFormatException();
+        }
     }
 }

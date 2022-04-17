@@ -24,4 +24,16 @@ class GameResultMessagesTest {
                 String.format("1%s 2%s", GameStatus.BALL.getName(), GameStatus.STRIKE.getName())
         );
     }
+
+    @Test
+    void 낫싱_메세지_반환_테스트() {
+        // given
+        GameResult gameResult = new GameResult();
+
+        // when
+        String message = GameResultMessages.convert(gameResult);
+
+        // then
+        Assertions.assertThat(message).contains(GameStatus.NOTHING.getName());
+    }
 }

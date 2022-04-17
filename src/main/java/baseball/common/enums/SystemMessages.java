@@ -5,6 +5,7 @@ public enum SystemMessages {
     GAME_OVER("3개의 숫자를 모두 맞히셨습니다! [게임 종료]"),
     RESULT("게임의 결과 입니다 : "),
     OPTION("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."),
+    OPTION_FAIL("잘못된 게임 옵션을 선택하셨습니다.")
     ;
 
     private final String text;

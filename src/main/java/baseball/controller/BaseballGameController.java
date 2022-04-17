@@ -1,6 +1,7 @@
 package baseball.controller;
 
 import baseball.common.enums.SystemMessages;
+import baseball.common.utils.NumberUtil;
 import baseball.domain.*;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -22,8 +23,7 @@ public class BaseballGameController {
                 gameResult = gameSystem.play();
 
                 System.out.println(GameResultMessages.convert(gameResult));
-                // TODO Magic Number 수정
-            } while (gameResult.getStrikeCounter() != 3);
+            } while (gameResult.getStrikeCounter() != GameOption.DRAW_COUNT);
 
             gameOver();
         } catch (Exception e) {
@@ -36,9 +36,11 @@ public class BaseballGameController {
         System.out.println(SystemMessages.OPTION.getText());
 
         String input = Console.readLine().trim();
+        if (!NumberUtil.isInteger(input)) {
+            throw new IllegalArgumentException(SystemMessages.OPTION_FAIL.getText());
+        }
 
-        // TODO Magic Number 수정
-        if (input.equals("1")) {
+        if (GameOption.restart(input)) {
             start();
         }
     }

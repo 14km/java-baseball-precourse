@@ -1,4 +1,4 @@
-package baseball.common.util;
+package baseball.common.utils;
 
 public class NumberUtil {
 

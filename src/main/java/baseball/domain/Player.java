@@ -9,15 +9,13 @@ public class Player {
     private static final int DRAW_COUNT = 3;
     private final List<Integer> inputNumbers = new ArrayList<>();
 
-    public List<Integer> inputNumber(String inputString) {
+    public void inputNumber(String inputString) {
         isValid(inputString);
 
         for (String input : inputString.split("")) {
             int result = Integer.parseInt(input);
             inputNumbers.add(result);
         }
-
-        return inputNumbers;
     }
 
     private void isValid(String inputString) {

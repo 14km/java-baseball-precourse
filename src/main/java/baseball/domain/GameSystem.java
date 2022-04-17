@@ -16,10 +16,7 @@ public class GameSystem {
 
         GameResult gameResult = new GameResult();
         for (int i = 0; i < player.getInputNumbers().size(); i++) {
-            int playerNumber = player.getInputNumbers().get(i);
-            int computerNumber = computer.getRandomsNumbers().get(i);
-
-            GameStatus gameStatus = checkStatus(playerNumber, computerNumber);
+            GameStatus gameStatus = checkStatus(player.getInputNumbers().get(i), computer.getRandomsNumbers().get(i));
             gameResult.addResult(gameStatus);
         }
 

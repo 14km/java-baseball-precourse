@@ -11,25 +11,20 @@ public class BaseballGameController {
     private final Computer computer = new Computer();
 
     public void start() {
-        try {
-            GameResult gameResult;
-            computer.pickNumber();
+        GameResult gameResult;
+        computer.pickNumber();
 
-            do {
-                System.out.print(SystemMessages.START.getText());
-                player.inputNumber(Console.readLine().trim());
+        do {
+            System.out.print(SystemMessages.START.getText());
+            player.inputNumber(Console.readLine().trim());
 
-                GameSystem gameSystem = new GameSystem(player, computer);
-                gameResult = gameSystem.play();
+            GameSystem gameSystem = new GameSystem(player, computer);
+            gameResult = gameSystem.play();
 
-                System.out.println(GameResultMessages.convert(gameResult));
-            } while (gameResult.getStrikeCounter() != GameOption.DRAW_COUNT);
+            System.out.println(GameResultMessages.convert(gameResult));
+        } while (gameResult.getStrikeCounter() != GameOption.DRAW_COUNT);
 
-            gameOver();
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            throw e;
-        }
+        gameOver();
     }
 
     private void gameOver() {

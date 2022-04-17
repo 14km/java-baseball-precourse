@@ -22,6 +22,6 @@ public class GameResultMessages {
             resultMessagesList.add(GameStatus.NOTHING.getName());
         }
 
-        return String.join("", resultMessagesList).trim();
+        return String.join(" ", resultMessagesList).trim();
     }
 }

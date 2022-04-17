@@ -26,8 +26,9 @@ public class BaseballGameController {
             } while (gameResult.getStrikeCounter() != GameOption.DRAW_COUNT);
 
             gameOver();
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
+            throw e;
         }
     }
 
